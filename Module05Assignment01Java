@@ -1,0 +1,42 @@
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+
+public class FourImageGrid extends Application {
+
+    @Override
+    public void start(Stage primaryStage) {
+        GridPane grid = new GridPane();
+
+        // Load images (update file names if needed)
+        ImageView img1 = new ImageView(new Image("file:img1.jpg"));
+        ImageView img2 = new ImageView(new Image("file:img2.jpg"));
+        ImageView img3 = new ImageView(new Image("file:img3.jpg"));
+        ImageView img4 = new ImageView(new Image("file:img4.jpg"));
+
+        // Set consistent size for all images
+        int width = 120, height = 120;
+        img1.setFitWidth(width); img1.setFitHeight(height);
+        img2.setFitWidth(width); img2.setFitHeight(height);
+        img3.setFitWidth(width); img3.setFitHeight(height);
+        img4.setFitWidth(width); img4.setFitHeight(height);
+
+        // Add images to the grid (column, row)
+        grid.add(img1, 0, 0);
+        grid.add(img2, 1, 0);
+        grid.add(img3, 0, 1);
+        grid.add(img4, 1, 1);
+
+        Scene scene = new Scene(grid, 260, 260);
+        primaryStage.setTitle("Four Images in a Grid");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
